@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MobileSoftwareDevelopment">
+        <service
+            android:name=".ImageListRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS">
+        </service>
+        <receiver
+            android:name=".ImageListWidgetProvider"
+            android:label="@string/widget_name"
+            android:roundIcon="@mipmap/ic_app"
+            android:icon="@mipmap/ic_app"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.widget.provider"
+                android:resource="@xml/image_list_widget_meta"/>
+        </receiver>
+    </application>
+</manifest>
